@@ -1,10 +1,10 @@
 FROM python:3.7-stretch
 
+# Add dependencies, tmux and vim
 RUN apt-get update -y \
     && apt-get install cmake -y \
-    && apt-get install tmux -y 
-
-RUN git clone https://github.com/vim/vim.git \
+    && apt-get install tmux -y  \
+    && git clone https://github.com/vim/vim.git \
     && cd vim \
     && ./configure --with-features=huge \
             --enable-multibyte \
@@ -19,20 +19,21 @@ RUN git clone https://github.com/vim/vim.git \
     && make VIMRUNTIMEDIR=/usr/local/share/vim/vim81 \
     && make install \
     && cd .. \
-    && rm -rf vim 
+    && rm -rf vim  \
+    && apt-get clean
 
+# Don't use root user for everything
 RUN useradd -ms /bin/bash  developer
 USER developer 
 WORKDIR /home/developer
 
-RUN git clone https://github.com/tharvell/vim.git \
-    && cp ./vim/.vimrc ~ \
-    && cp vim/.bashrc ~ 
+# Add .vimrc and .bashrc
+COPY . .
 
+# Set up vim config with Pathogen 
 RUN mkdir -p ~/.vim/autoload ~/.vim/bundle \
-    && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-
-RUN cd ~/.vim/bundle \
+    && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim \
+    && cd ~/.vim/bundle \
     && git clone https://github.com/tpope/vim-fugitive.git \
     && git clone https://github.com/jnurmine/Zenburn.git \
     && git clone https://github.com/nvie/vim-flake8.git \ 
@@ -46,6 +47,4 @@ RUN cd ~/.vim/bundle \
        && ./install.py --clang-completer \
        && cd ..
 
-#RUN pip install --user git+git://github.com/powerline/powerline \
-#    && ln -s /home/developer/.local/lib/python3.7/site-packages/powerline/scripts/powerline ~/.local/bin
 
