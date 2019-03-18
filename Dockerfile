@@ -28,7 +28,7 @@ USER developer
 WORKDIR /home/developer
 
 # Add .vimrc and .bashrc
-COPY  --chown=patrick ./config_files .
+COPY  --chown=developer ./config_files .
 
 
 
