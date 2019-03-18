@@ -113,3 +113,8 @@ if ! shopt -oq posix; then
 fi
 
 export TERM=xterm-256color
+
+# Set Bash vim mode
+set -o vi
+
+alias vi='vim'
