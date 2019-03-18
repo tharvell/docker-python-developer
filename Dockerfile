@@ -28,7 +28,9 @@ USER developer
 WORKDIR /home/developer
 
 # Add .vimrc and .bashrc
-COPY . .
+COPY  --chown=patrick ./config_files .
+
+
 
 # Set up vim config with Pathogen 
 RUN mkdir -p ~/.vim/autoload ~/.vim/bundle \
