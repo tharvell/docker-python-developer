@@ -118,3 +118,5 @@ export TERM=xterm-256color
 set -o vi
 
 alias vi='vim'
+
+PATH=/home/developer/.local/bin:$PATH
