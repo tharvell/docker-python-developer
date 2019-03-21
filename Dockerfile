@@ -6,6 +6,7 @@ RUN apt-get update -y \
     && apt-get install man -y \ 
     && apt-get install tmux -y  \
     && apt-get install ctags -y \ 
+    && apt-get install zsh -y \  
     && git clone https://github.com/vim/vim.git \
     && cd vim \
     && ./configure --with-features=huge \
@@ -32,7 +33,8 @@ WORKDIR /home/developer
 # Add .vimrc and .bashrc
 COPY  --chown=developer ./config_files .
 
-
+# Set ZSH to default shell
+RUN chsh -s $(which zsh)
 
 # Set up vim config with Pathogen 
 RUN mkdir -p ~/.vim/autoload ~/.vim/bundle \
