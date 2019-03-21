@@ -33,9 +33,6 @@ WORKDIR /home/developer
 # Add .vimrc and .bashrc
 COPY  --chown=developer ./config_files .
 
-# Set ZSH to default shell
-RUN chsh -s $(which zsh)
-
 # Set up vim config with Pathogen 
 RUN mkdir -p ~/.vim/autoload ~/.vim/bundle \
     && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim \
