@@ -5,6 +5,7 @@ RUN apt-get update -y \
     && apt-get install cmake -y \
     && apt-get install man -y \ 
     && apt-get install tmux -y  \
+    && apt-get install ctags -y \ 
     && git clone https://github.com/vim/vim.git \
     && cd vim \
     && ./configure --with-features=huge \
