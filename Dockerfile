@@ -7,14 +7,14 @@ RUN apt-get update -y \
     && apt-get install tmux -y  \
     && apt-get install ctags -y \ 
     && apt-get install zsh -y \  
-    && apt-get install zsh-antigen -y \ 
+    && git clone https://github.com/zsh-users/antigen.git ~/antigen \
     && git clone https://github.com/vim/vim.git \
     && cd vim \
     && ./configure --with-features=huge \
             --enable-multibyte \
 	    --enable-rubyinterp=yes \
 	    --enable-python3interp=yes \
-    --with-python3-config-dir=/usr/lib/python3.5/config \
+            --with-python3-config-dir=/usr/lib/python3.5/config \
 	    --enable-perlinterp=yes \
 	    --enable-luainterp=yes \
             --enable-gui=gtk2 \
