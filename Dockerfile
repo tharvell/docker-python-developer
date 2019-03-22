@@ -26,8 +26,8 @@ RUN apt-get update -y \
     && rm -rf vim  \
     && apt-get clean
 
-# Don't use root user for everything
-RUN useradd -ms /bin/bash  developer
+# Don't use root user for everything but give sudo
+RUN useradd -ms /bin/bash  developer && echo "developer:developer" | chpasswd && adduser developer sudo
 USER developer 
 WORKDIR /home/developer
 

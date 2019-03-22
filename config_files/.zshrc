@@ -12,7 +12,7 @@ bindkey -v
 # Remove the esc lag
 export KEYTIMEOUT=1
 
-antigen theme denysdovhan/spaceship-prompt
+#antigen theme denysdovhan/spaceship-prompt
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
