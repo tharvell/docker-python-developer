@@ -1,12 +1,13 @@
 FROM python:3.7-stretch
 
 # Add dependencies, tmux and vim
-RUN apt-get update -y \
+RUN apt-get update -y \ 
     && apt-get install cmake -y \
     && apt-get install man -y \ 
     && apt-get install tmux -y  \
     && apt-get install ctags -y \ 
     && apt-get install zsh -y \  
+    && apt-get install zsh-antigen -y \ 
     && git clone https://github.com/vim/vim.git \
     && cd vim \
     && ./configure --with-features=huge \
