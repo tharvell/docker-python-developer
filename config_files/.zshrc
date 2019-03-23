@@ -4,6 +4,7 @@ source ~/.zsh/antigen.zsh
 
 # Load the theme.
 antigen theme denysdovhan/spaceship-prompt
+antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 # Tell Antigen that you're done.
 antigen apply
@@ -23,3 +24,5 @@ HISTFILE=~/.zsh_history
 
 # 
 alias vi=vim
+
+SPACESHIP_VI_MODE_SHOW=false
