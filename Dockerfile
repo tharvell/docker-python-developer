@@ -2,6 +2,7 @@ FROM python:3.7-stretch
 
 # Add dependencies, tmux and vim
 RUN apt-get update -y \ 
+    && apt-get install fonts-powerline -y \
     && apt-get install sudo -y \  
     && apt-get install cmake -y \
     && apt-get install man -y \ 
@@ -31,6 +32,8 @@ RUN apt-get update -y \
 RUN useradd -ms /bin/bash  developer && echo "developer:developer" | chpasswd && adduser developer sudo
 USER developer 
 WORKDIR /home/developer
+
+RUN mkdir ~/.zsh && curl -L git.io/antigen > ~/.zsh/antigen.zsh 
 
 # Add .vimrc and .bashrc
 COPY  --chown=developer ./config_files .
