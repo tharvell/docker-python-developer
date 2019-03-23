@@ -2,6 +2,7 @@ FROM python:3.7-stretch
 
 # Add dependencies, tmux and vim
 RUN apt-get update -y \ 
+    && apt-get install cron -y \ 
     && apt-get install fonts-powerline -y \
     && apt-get install sudo -y \  
     && apt-get install cmake -y \
@@ -34,6 +35,8 @@ USER developer
 WORKDIR /home/developer
 
 RUN mkdir ~/.zsh && curl -L git.io/antigen > ~/.zsh/antigen.zsh 
+
+RUN (crontab -l 2>/dev/null; echo "1 * * * * ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))") ~")| crontab -
 
 # Add .vimrc and .bashrc
 COPY  --chown=developer ./config_files .
