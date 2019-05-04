@@ -5,6 +5,7 @@
 
 ## Amazon Linux 2 AMI
 ```bash 
+#!/bin/bash
 yum update -y
 yum install -y git
 git clone https://github.com/tharvell/docker-python-developer.git
