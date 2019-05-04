@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/sh
 # This script was tested on 
 # 
 # NAME="Amazon Linux"
@@ -12,9 +12,9 @@
 # HOME_URL="https://amazonlinux.com/"
 
 # Remove the existing vim
-yum remove vim-common.x86_64 -y
-yum remove vim-enhanced.x86_64 -y
-yum erase vim-common.x86_64 vim-enhanced.x86_64 vim-filesystem.x86_64 -y
+yum remove -y vim-common.x86_64 
+yum remove -y vim-enhanced.x86_64 -y
+yum erase -y vim-common.x86_64 vim-enhanced.x86_64 vim-filesystem.x86_64 
 
 # Install buid dependencies 
 yum install gcc -y
@@ -66,16 +66,16 @@ make &&  make install
 
 mkdir -p /home/ec2-user/.vim/autoload /home/ec2-user/.vim/bundle 
 curl -LSso /home/ec2-user/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim 
-git clone https://github.com/tpope/vim-fugitive.git /home/ec2-user/.vim/bundle
-git clone https://github.com/jnurmine/Zenburn.git /home/ec2-user/.vim/bundle
-git clone https://github.com/nvie/vim-flake8.git /home/ec2-user/.vim/bundle
-git clone https://github.com/scrooloose/nerdtree.git /home/ec2-user/.vim/bundle
-git clone https://github.com/vim-syntastic/syntastic.git /home/ec2-user/.vim/bundle
-git clone https://github.com/tmhedberg/SimpylFold.git /home/ec2-user/.vim/bundle
-git clone https://github.com/vim-scripts/indentpython.vim.git /home/ec2-user/.vim/bundle
-git clone https://github.com/itchyny/lightline.vim /home/ec2-user/.vim/bundle 
-git clone https://github.com/Valloric/YouCompleteMe.git /home/ec2-user/.vim/bundle
-cd /home/ec2-user/.vim/bundle/YouCompleteMe && git submodule update --init --recursive && ./install.py --clang-completer \
+git clone https://github.com/tpope/vim-fugitive.git /home/ec2-user/.vim/bundle/vim-fugitive
+git clone https://github.com/jnurmine/Zenburn.git /home/ec2-user/.vim/bundle/Zenburn
+git clone https://github.com/nvie/vim-flake8.git /home/ec2-user/.vim/bundle/vim-flake8
+git clone https://github.com/scrooloose/nerdtree.git /home/ec2-user/.vim/bundle/nerdtree
+git clone https://github.com/vim-syntastic/syntastic.git /home/ec2-user/.vim/bundle/syntastic
+git clone https://github.com/tmhedberg/SimpylFold.git /home/ec2-user/.vim/bundle/SimpylFold
+git clone https://github.com/vim-scripts/indentpython.vim.git /home/ec2-user/.vim/bundle/indentpython
+git clone https://github.com/itchyny/lightline.vim /home/ec2-user/.vim/bundle/lightline
+git clone https://github.com/Valloric/YouCompleteMe.git /home/ec2-user/.vim/bundle/YouCompleteMe
+cd /home/ec2-user/.vim/bundle/YouCompleteMe && git submodule update --init --recursive && ./install.py --clang-completer 
 
 
 ########################################################
@@ -86,7 +86,11 @@ cd /home/ec2-user/.vim/bundle/YouCompleteMe && git submodule update --init --rec
 
 mkdir /home/ec2-user/.zsh && curl -L git.io/antigen > /home/ec2-user/.zsh/antigen.zsh 
 
+cd ~
+
 git clone https://github.com/tharvell/docker-python-developer.git
 
 cp docker-python-developer/config_files/.* /home/ec2-user/
 
+chown -R ec2-user:ec2-user /home/ec2-user/*
+chown -R ec2-user:ec2-user /home/ec2-user/.*
