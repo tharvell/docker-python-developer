@@ -51,3 +51,4 @@ git clone https://github.com/Valloric/YouCompleteMe.git
 cd YouCompleteMe && git submodule update --init --recursive
 python3 install.py --clang-completer
 
+cp ~/docker-python-developer/config_files/.* ~
