@@ -14,6 +14,8 @@ sudo apt-get install  libperl-dev -y
 sudo apt-get install ruby-dev -y
 sudo apt-get install libncurses5-dev libncursesw5-dev -y
 
+snap install docker
+
 ##### Remove and install vim #####
 sudo apt-get remove vim.tiny -y
 sudo apt-get remove vim -y
