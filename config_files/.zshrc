@@ -24,8 +24,11 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
+export EDITOR=vim
+
 # 
 alias vi=vim
+alias manual_ctags='ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags /usr/local/lib/python3.7 /usr/local/lib/python3.7/lib-dynload /usr/local/lib/python3.7/site-packages ~'
 
 SPACESHIP_VI_MODE_SHOW=false
 
