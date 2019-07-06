@@ -1,6 +1,7 @@
 #/bin/sh
 
-apt-get update -y
+cp ./docker-python-developer/config_files/.* /home/ubuntu/ 
+
 apt-get install gcc -y
 apt-get install python3-dev -y
 apt-get install build-essential -y
@@ -14,7 +15,7 @@ sudo apt-get install  libperl-dev -y
 sudo apt-get install ruby-dev -y
 sudo apt-get install libncurses5-dev libncursesw5-dev -y
 
-snap install docker
+# snap install docker
 
 ##### Remove and install vim #####
 sudo apt-get remove vim.tiny -y
@@ -32,7 +33,7 @@ rm -rf vim
 
 mkdir /home/ubuntu/.zsh && curl -L git.io/antigen > /home/ubuntu/.zsh/antigen.zsh 
 
-git clone https://github.com/zsh-users/antigen.git /home/ubuntu/antigen
+# git clone https://github.com/zsh-users/antigen.git /home/ubuntu/antigen
 
 # (crontab -l 2>/dev/null; echo "1 * * * * ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))") ~")| crontab -
 
@@ -53,4 +54,4 @@ git clone https://github.com/Valloric/YouCompleteMe.git
 cd YouCompleteMe && git submodule update --init --recursive
 python3 install.py --clang-completer
 
-cp /home/ubuntu/docker-python-developer/config_files/.* /home/ubuntu/ 
+
