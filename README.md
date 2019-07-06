@@ -27,3 +27,13 @@ git clone https://github.com/tharvell/docker-python-developer.git
 chmod u+x docker-python-developer/linux/amazon_linux_2.sh
 docker-python-developer/linux/amazon_linux_2.sh
 ```
+
+## Ubuntu 18
+```bash
+#!/bin/bash
+apt-get update -y
+apt-get install -y git
+git clone https://github.com/tharvell/docker-python-developer.git
+chmod u+x docker-python-developer/linux/ubuntu18.sh
+docker-python-developer/linux/ubuntu18.sh
+```
