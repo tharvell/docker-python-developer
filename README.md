@@ -14,11 +14,9 @@ docker restart container_name
 ```bash
 docker attach container_name
 ```
-
-
-
-## 
-# If you are workin in AWS add the following to the 'User Data' EC2 start up scripts.
+ 
+# AWS: Skip the container and use directly on EC2
+You will need to use the appropriate shell script for the linux distribution you are useing. 
 
 ## Amazon Linux 2 AMI
 ```bash 
