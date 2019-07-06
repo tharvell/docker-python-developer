@@ -30,17 +30,17 @@ make &&  make install
 
 rm -rf vim 
 
-mkdir ~/.zsh && curl -L git.io/antigen > ~/.zsh/antigen.zsh 
+mkdir /home/ubuntu/.zsh && curl -L git.io/antigen > /home/ubuntu/.zsh/antigen.zsh 
 
-git clone https://github.com/zsh-users/antigen.git ~/antigen
+git clone https://github.com/zsh-users/antigen.git /home/ubuntu/antigen
 
 # (crontab -l 2>/dev/null; echo "1 * * * * ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))") ~")| crontab -
 
-mkdir -p ~/.vim/autoload ~/.vim/bundle
+mkdir -p /home/ubuntu/.vim/autoload /home/ubuntu/.vim/bundle
 
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+curl -LSso /home/ubuntu/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
-cd ~/.vim/bundle
+cd /home/ubuntu/.vim/bundle
 git clone https://github.com/tpope/vim-fugitive.git
 git clone https://github.com/jnurmine/Zenburn.git
 git clone https://github.com/nvie/vim-flake8.git
@@ -53,4 +53,4 @@ git clone https://github.com/Valloric/YouCompleteMe.git
 cd YouCompleteMe && git submodule update --init --recursive
 python3 install.py --clang-completer
 
-cp ~/docker-python-developer/config_files/.* ~
+cp /home/ubuntu/docker-python-developer/config_files/.* /home/ubuntu/ 
